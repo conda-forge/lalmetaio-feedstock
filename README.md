@@ -10,8 +10,8 @@ Feedstock license: BSD 3-Clause
 Summary: LSC Algorithm MetaIO Library
 
 The LSC Algorithm MetaIO Library for gravitational wave data analysis.
-This package contains the shared-object libraries and python bindings
-needed to run applications that use the LAL MetaIO library.
+This package contains the shared-object libraries needed to run
+applications that use the LAL MetaIO library.
 
 
 Current build status
@@ -27,6 +27,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-lalmetaio-green.svg)](https://anaconda.org/conda-forge/lalmetaio) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lalmetaio.svg)](https://anaconda.org/conda-forge/lalmetaio) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lalmetaio.svg)](https://anaconda.org/conda-forge/lalmetaio) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lalmetaio.svg)](https://anaconda.org/conda-forge/lalmetaio) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-python--lalmetaio-green.svg)](https://anaconda.org/conda-forge/python-lalmetaio) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/python-lalmetaio.svg)](https://anaconda.org/conda-forge/python-lalmetaio) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/python-lalmetaio.svg)](https://anaconda.org/conda-forge/python-lalmetaio) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/python-lalmetaio.svg)](https://anaconda.org/conda-forge/python-lalmetaio) |
 
 Installing lalmetaio
 ====================
@@ -37,10 +38,10 @@ Installing `lalmetaio` from the `conda-forge` channel can be achieved by adding 
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `lalmetaio` can be installed with:
+Once the `conda-forge` channel has been enabled, `lalmetaio, python-lalmetaio` can be installed with:
 
 ```
-conda install lalmetaio
+conda install lalmetaio python-lalmetaio
 ```
 
 It is possible to list all of the versions of `lalmetaio` available on your platform with:

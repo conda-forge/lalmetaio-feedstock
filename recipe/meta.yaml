@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -26,11 +26,7 @@ requirements:
     - lal
     - python
     - numpy
-  run:
-    - metaio
-    - lal
-    - python
-    - numpy
+    - python-lal
 
 test:
   imports:
@@ -38,16 +34,73 @@ test:
   commands:
     - lalmetaio_version --verbose
 
+outputs:
+  - name: lalmetaio
+    requirements:
+      build:
+        - {{ compiler('c') }}
+      host:
+        - gsl
+        - metaio
+        - lal
+      run:
+        - gsl
+        - metaio
+        - lal
+    files:
+      - bin/lalmetaio_version
+      - etc/lalmetaio-user-env.*
+      - include/lal/LIGOLwXML*.h
+      - include/lal/LIGOMetadata*.h
+      - lib/liblalmetaio*
+      - lib/pkgconfig/lalmetaio*.pc
+    test:
+      commands:
+        - lalmetaio_version --verbose
+    about:
+      home: https://wiki.ligo.org/DASWG/LALSuite
+      license: GPLv3
+      license_family: GPL
+      license_file: COPYING
+      summary: LSC Algorithm MetaIO Library
+      description: |
+        The LSC Algorithm MetaIO Library for gravitational wave data analysis.
+        This package contains the shared-object libraries needed to run
+        applications that use the LAL MetaIO library.
+  - name: python-lalmetaio
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - swig>=3.0.7
+      host:
+        - {{ pin_subpackage('lalmetaio', exact=True) }}
+        - python
+        - numpy
+      run:
+        - {{ pin_subpackage('lalmetaio', exact=True) }}
+        - python
+        - numpy
+        - python-lal
+    files:
+      - lib/python*/site-packages/lalmetaio/**
+    test:
+      imports:
+        - lalmetaio
+    about:
+      home: https://wiki.ligo.org/DASWG/LALSuite
+      license: GPLv3
+      license_family: GPL
+      license_file: COPYING
+      summary: LSC Algorithm MetaIO Library
+      description: |
+        The LSC Algorithm MetaIO Library for gravitational wave data analysis.
+        This package contains the python bindings.
+
 about:
   home: https://wiki.ligo.org/DASWG/LALSuite
   license: GPLv3
   license_family: GPL
-  license_file: COPYING
-  summary: LSC Algorithm MetaIO Library
-  description: |
-    The LSC Algorithm MetaIO Library for gravitational wave data analysis.
-    This package contains the shared-object libraries and python bindings
-    needed to run applications that use the LAL MetaIO library.
+  summary: LSC Algorithm Frame Library
 
 extra:
   recipe-maintainers:
