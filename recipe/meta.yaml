@@ -53,6 +53,8 @@ outputs:
       - include/lal/LALMetaIO*.h
       - include/lal/LIGOLwXML*.h
       - include/lal/LIGOMetadata*.h
+      - include/lal/SWIGLALMetaIO*
+      - include/lal/swiglalmetaio*
       - lib/liblalmetaio*
       - lib/pkgconfig/lalmetaio*.pc
     test:
