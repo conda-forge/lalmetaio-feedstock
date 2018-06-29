@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -50,8 +50,11 @@ outputs:
     files:
       - bin/lalmetaio_version
       - etc/lalmetaio-user-env.*
+      - include/lal/LALMetaIO*.h
       - include/lal/LIGOLwXML*.h
       - include/lal/LIGOMetadata*.h
+      - include/lal/SWIGLALMetaIO*
+      - include/lal/swiglalmetaio*
       - lib/liblalmetaio*
       - lib/pkgconfig/lalmetaio*.pc
     test:
