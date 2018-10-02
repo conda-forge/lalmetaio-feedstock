@@ -1,6 +1,6 @@
 {% set name = "lalmetaio" %}
-{% set version = "1.3.1" %}
-{% set sha256 = "f88e4baed92fd064e055ec7975d3098dfd6978b1a3209b220d1e87fdd4da2991" %}
+{% set version = "1.4.0" %}
+{% set sha256 = "da06bc6a023e3edcc409d303ef576948d0a3c5103afaaaa748f33346b74daaa8" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -20,43 +20,27 @@ requirements:
     - pkg-config
     - make
     - {{ compiler('c') }}
-    - swig>=3.0.7
   host:
+    - swig >=3.0.7
+    - gsl
     - metaio
-    - lal
-    - python
-    - numpy
-    - python-lal
-
-test:
-  imports:
-    - lalmetaio
-  commands:
-    - lalmetaio_version --verbose
+    - lal >=6.19.0
 
 outputs:
   - name: lalmetaio
+    script: install-c.sh
     requirements:
-      build:
-        - {{ compiler('c') }}
       host:
+        - {{ compiler('c') }}
+        - make
+        - swig >=3.0.7
         - gsl
         - metaio
-        - lal
+        - lal >=6.19.0
       run:
         - gsl
         - metaio
-        - lal
-    files:
-      - bin/lalmetaio_version
-      - etc/lalmetaio-user-env.*
-      - include/lal/LALMetaIO*.h
-      - include/lal/LIGOLwXML*.h
-      - include/lal/LIGOMetadata*.h
-      - include/lal/SWIGLALMetaIO*
-      - include/lal/swiglalmetaio*
-      - lib/liblalmetaio*
-      - lib/pkgconfig/lalmetaio*.pc
+        - lal >=6.19.0
     test:
       commands:
         - lalmetaio_version --verbose
@@ -71,21 +55,21 @@ outputs:
         This package contains the shared-object libraries needed to run
         applications that use the LAL MetaIO library.
   - name: python-lalmetaio
+    script: install-python.sh
     requirements:
-      build:
-        - {{ compiler('c') }}
-        - swig>=3.0.7
       host:
+        - {{ compiler('c') }}
+        - make
+        - pkg-config
+        - swig >=3.0.7
         - {{ pin_subpackage('lalmetaio', exact=True) }}
         - python
         - numpy
       run:
         - {{ pin_subpackage('lalmetaio', exact=True) }}
         - python
-        - numpy
-        - python-lal
-    files:
-      - lib/python*/site-packages/lalmetaio/**
+        - {{ pin_compatible('numpy') }}
+        - python-lal >=6.19.0
     test:
       imports:
         - lalmetaio
