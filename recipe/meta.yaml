@@ -1,6 +1,6 @@
 {% set name = "lalmetaio" %}
-{% set version = "1.4.0" %}
-{% set sha256 = "da06bc6a023e3edcc409d303ef576948d0a3c5103afaaaa748f33346b74daaa8" %}
+{% set version = "1.5.0" %}
+{% set sha256 = "9571ed6e65463188ce4a1030e6be45b1ce44f76c2c965a4b1e615a68c4efdd03" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1001
+  number: 0
   skip: true  # [win]
 
 requirements:
