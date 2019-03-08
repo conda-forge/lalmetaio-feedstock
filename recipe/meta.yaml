@@ -16,7 +16,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -39,6 +39,9 @@ test:
 
 outputs:
   - name: lalmetaio
+    build:
+      run_exports:
+        - {{ pin_subpackage("lalmetaio", max_pin="x.x") }}
 
   - name: python-lalmetaio
     script: install-python.sh
