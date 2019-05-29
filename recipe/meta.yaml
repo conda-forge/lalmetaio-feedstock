@@ -1,9 +1,9 @@
 {% set name = "lalmetaio" %}
-{% set version = "1.5.0" %}
-{% set sha256 = "9571ed6e65463188ce4a1030e6be45b1ce44f76c2c965a4b1e615a68c4efdd03" %}
+{% set version = "1.5.1" %}
+{% set sha256 = "40484f42768daae3ffcc6a9a1aa36887af912c272eca283b4557c92d98fd78ca" %}
 
 # dependencies
-{% set lal_version = "6.19.2" %}
+{% set lal_version = "6.20.0" %}
 {% set swig_version = "3.0.7" %}
 
 package:
@@ -14,11 +14,9 @@ source:
   fn: {{ name }}-{{ version }}.tar.xz
   url: http://software.ligo.org/lscsoft/source/lalsuite/{{ name }}-{{ version }}.tar.xz
   sha256: {{ sha256 }}
-  patches:
-    - pkgconfig.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -55,7 +53,7 @@ outputs:
         - swig >={{ swig_version }}
       host:
         - {{ pin_subpackage('lalmetaio', exact=True) }}
-        - numpy
+        - numpy 1.9
         - python
       run:
         - lal
