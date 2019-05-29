@@ -53,7 +53,7 @@ outputs:
         - swig >={{ swig_version }}
       host:
         - {{ pin_subpackage('lalmetaio', exact=True) }}
-        - numpy
+        - numpy 1.9
         - python
       run:
         - lal
