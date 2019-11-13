@@ -3,7 +3,7 @@ About lalmetaio
 
 Home: https://wiki.ligo.org/Computing/LALSuite
 
-Package license: GPLv3
+Package license: GPL-3.0-or-later
 
 Feedstock license: BSD 3-Clause
 
