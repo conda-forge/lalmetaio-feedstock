@@ -1,6 +1,6 @@
 {% set name = "lalmetaio" %}
-{% set version = "1.5.1" %}
-{% set sha256 = "40484f42768daae3ffcc6a9a1aa36887af912c272eca283b4557c92d98fd78ca" %}
+{% set version = "1.6.0" %}
+{% set sha256 = "7618e787acd61a175c5dd457601235d82af6a4be3effbc135113e777ecc0153b" %}
 
 # dependencies
 {% set lal_version = "6.20.0" %}
@@ -17,7 +17,7 @@ source:
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 1
+  number: 0
   skip: true  # [win]
 
 requirements:
