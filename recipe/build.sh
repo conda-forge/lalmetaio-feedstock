@@ -2,14 +2,22 @@
 
 set -e
 
+# configure
 ./configure \
 	--prefix="${PREFIX}" \
-	--enable-swig-iface \
+	--disable-gcc-flags \
+	--disable-python \
 	--disable-swig-octave \
 	--disable-swig-python \
-	--disable-python \
-	--disable-gcc-flags \
-	--enable-silent-rules
+	--enable-silent-rules \
+	--enable-swig-iface \
+;
+
+# build
 make -j ${CPU_COUNT}
+
+# test
 make -j ${CPU_COUNT} check
+
+# install
 make install

@@ -1,9 +1,9 @@
 {% set name = "lalmetaio" %}
-{% set version = "1.5.1" %}
-{% set sha256 = "40484f42768daae3ffcc6a9a1aa36887af912c272eca283b4557c92d98fd78ca" %}
+{% set version = "1.6.0" %}
+{% set sha256 = "7618e787acd61a175c5dd457601235d82af6a4be3effbc135113e777ecc0153b" %}
 
 # dependencies
-{% set lal_version = "6.20.0" %}
+{% set lal_version = "6.21.0" %}
 {% set swig_version = "3.0.7" %}
 
 package:
@@ -17,14 +17,14 @@ source:
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 1
+  number: 0
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - make
-    - pkg-config
+    - pkg-config >=0.18.0
     - swig >={{ swig_version }}
   host:
     - lal >={{ lal_version }}
@@ -33,8 +33,11 @@ requirements:
     - lal >={{ lal_version }}
     - metaio
 test:
+  requires:
+    - pkg-config  # [unix]
   commands:
     - lalmetaio_version --verbose
+    - test "$(pkg-config --modversion ${PKG_NAME})" == "${PKG_VERSION}"  # [unix]
 
 outputs:
   - name: lalmetaio
@@ -51,7 +54,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - make
-        - pkg-config
+        - pkg-config >=0.18.0
         - swig >={{ swig_version }}
       host:
         - {{ pin_subpackage('lalmetaio', exact=True) }}
@@ -60,13 +63,21 @@ outputs:
       run:
         - lal
         - {{ pin_subpackage('lalmetaio', exact=True) }}
-        - metaio
+        - metaio  # [linux]
         - {{ pin_compatible('numpy') }}
         - python
         - python-lal >={{ lal_version }}
     test:
       imports:
         - lalmetaio
+      requires:
+        - mock  # [py<33]
+        - pathlib  # [py<34]
+        - pytest >=4.0.0a0
+      source_files:
+        - test/python
+      commands:
+        - pushd test/python; python -m pytest -v; popd
     about:
       home: "https://wiki.ligo.org/Computing/LALSuite"
       doc_url: "https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/"
