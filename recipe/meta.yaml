@@ -50,6 +50,8 @@ outputs:
     build:
       error_overlinking: true
       error_overdepending: true
+      ignore_run_exports:
+        - python
     requirements:
       build:
         - {{ compiler('c') }}
