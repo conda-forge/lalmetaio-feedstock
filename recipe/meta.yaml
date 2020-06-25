@@ -3,8 +3,8 @@
 {% set sha256 = "8b33a98343a40841f5da12b0b0d3df941654800e7e84f11be1db3a6f0e404412" %}
 
 # dependencies
-{% set lal_version = "6.21.0" %}
-{% set swig_version = "3.0.7" %}
+{% set lal_version = "7.0.0" %}
+{% set swig_version = "3.0.9" %}
 
 package:
   name: {{ name|lower }}
@@ -73,8 +73,6 @@ outputs:
       imports:
         - lalmetaio
       requires:
-        - mock  # [py<33]
-        - pathlib  # [py<34]
         - pytest >=4.0.0a0
       source_files:
         - test/python
