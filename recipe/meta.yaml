@@ -1,23 +1,23 @@
 {% set name = "lalmetaio" %}
-{% set version = "1.6.0" %}
-{% set sha256 = "7618e787acd61a175c5dd457601235d82af6a4be3effbc135113e777ecc0153b" %}
+{% set version = "1.6.1" %}
+{% set sha256 = "8b33a98343a40841f5da12b0b0d3df941654800e7e84f11be1db3a6f0e404412" %}
 
 # dependencies
-{% set lal_version = "6.21.0" %}
-{% set swig_version = "3.0.7" %}
+{% set lal_version = "7.0.0" %}
+{% set swig_version = "3.0.9" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "http://software.ligo.org/lscsoft/source/lalsuite/{{ name }}-{{ version }}.tar.xz"
-  sha256: "{{ sha256 }}"
+  url: http://software.ligo.org/lscsoft/source/lalsuite/{{ name }}-{{ version }}.tar.xz
+  sha256: {{ sha256 }}
 
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -73,33 +73,31 @@ outputs:
       imports:
         - lalmetaio
       requires:
-        - mock  # [py<33]
-        - pathlib  # [py<34]
         - pytest >=4.0.0a0
       source_files:
         - test/python
       commands:
         - pushd test/python; python -m pytest -v; popd
     about:
-      home: "https://wiki.ligo.org/Computing/LALSuite"
-      doc_url: "https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/"
-      dev_url: "https://git.ligo.org/lscsoft/lalsuite/"
-      license: "GPL-2.0-or-later"
-      license_family: "GPL"
-      license_file: "COPYING"
-      summary: "LSC Algorithm MetaIO Library"
+      home: https://wiki.ligo.org/Computing/LALSuite
+      doc_url: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
+      dev_url: https://git.ligo.org/lscsoft/lalsuite/
+      license: GPL-2.0-or-later
+      license_family: GPL
+      license_file: COPYING
+      summary: LSC Algorithm MetaIO Library
       description: |
         The LSC Algorithm MetaIO Library for gravitational wave data analysis.
         This package contains the python bindings.
 
 about:
-  home: "https://wiki.ligo.org/Computing/LALSuite"
-  doc_url: "https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/"
-  dev_url: "https://git.ligo.org/lscsoft/lalsuite/"
-  license: "GPL-2.0-or-later"
-  license_family: "GPL"
-  license_file: "COPYING"
-  summary: "LSC Algorithm MetaIO Library"
+  home: https://wiki.ligo.org/Computing/LALSuite
+  doc_url: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
+  dev_url: https://git.ligo.org/lscsoft/lalsuite/
+  license: GPL-2.0-or-later
+  license_family: GPL
+  license_file: COPYING
+  summary: LSC Algorithm MetaIO Library
   description: |
     The LSC Algorithm MetaIO Library for gravitational wave data analysis.
     This package contains the shared-object libraries needed to run
