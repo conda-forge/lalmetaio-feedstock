@@ -17,7 +17,7 @@ source:
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -43,7 +43,7 @@ outputs:
   - name: lalmetaio
     build:
       run_exports:
-        - {{ pin_subpackage("lalmetaio", max_pin="x.x") }}
+        - {{ pin_subpackage("lalmetaio", max_pin="x") }}
 
   - name: python-lalmetaio
     script: install-python.sh
