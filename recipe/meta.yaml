@@ -18,7 +18,7 @@ source:
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -83,9 +83,7 @@ outputs:
         - numpy
         - python
       run:
-        - liblal >={{ lal_version }}
         - {{ pin_subpackage('liblalmetaio', exact=True) }}
-        - metaio >={{ metaio_version }}  # [linux]
         - {{ pin_compatible('numpy') }}
         - python
         - python-lal >={{ lal_version }}
