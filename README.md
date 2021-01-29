@@ -15,9 +15,7 @@ Documentation: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
 
 The LSC Algorithm MetaIO Library for gravitational wave data analysis.
 This package contains the shared-object libraries needed to run
-applications that use the LAL MetaIO library.  If you want to install
-the Python bindings, please install the associated python-lalmetaio
-package.
+applications that use the LAL MetaIO library.
 
 
 Current build status
@@ -65,6 +63,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-lalmetaio-green.svg)](https://anaconda.org/conda-forge/lalmetaio) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lalmetaio.svg)](https://anaconda.org/conda-forge/lalmetaio) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lalmetaio.svg)](https://anaconda.org/conda-forge/lalmetaio) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lalmetaio.svg)](https://anaconda.org/conda-forge/lalmetaio) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-liblalmetaio-green.svg)](https://anaconda.org/conda-forge/liblalmetaio) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/liblalmetaio.svg)](https://anaconda.org/conda-forge/liblalmetaio) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/liblalmetaio.svg)](https://anaconda.org/conda-forge/liblalmetaio) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/liblalmetaio.svg)](https://anaconda.org/conda-forge/liblalmetaio) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-python--lalmetaio-green.svg)](https://anaconda.org/conda-forge/python-lalmetaio) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/python-lalmetaio.svg)](https://anaconda.org/conda-forge/python-lalmetaio) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/python-lalmetaio.svg)](https://anaconda.org/conda-forge/python-lalmetaio) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/python-lalmetaio.svg)](https://anaconda.org/conda-forge/python-lalmetaio) |
 
 Installing lalmetaio
@@ -76,10 +75,10 @@ Installing `lalmetaio` from the `conda-forge` channel can be achieved by adding 
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `lalmetaio, python-lalmetaio` can be installed with:
+Once the `conda-forge` channel has been enabled, `lalmetaio, liblalmetaio, python-lalmetaio` can be installed with:
 
 ```
-conda install lalmetaio python-lalmetaio
+conda install lalmetaio liblalmetaio python-lalmetaio
 ```
 
 It is possible to list all of the versions of `lalmetaio` available on your platform with:
