@@ -13,6 +13,7 @@ ${SRC_DIR}/configure \
 	--disable-python \
 	--disable-swig-octave \
 	--disable-swig-python \
+	--enable-help2man \
 	--enable-swig-iface \
 	--prefix="${PREFIX}" \
 ;
