@@ -18,7 +18,7 @@ source:
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -51,6 +51,9 @@ outputs:
       run:
         - liblal >={{ lal_version }}
         - metaio >={{ metaio_version }}
+      run_constrained:
+        - lalmetaio >=2.0.1
+        - python-lalmetaio >=2.0.1
     about:
       home: https://wiki.ligo.org/Computing/LALSuite
       doc_url: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
@@ -75,6 +78,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - help2man >=1.37
         - make
         - pkg-config >=0.18.0
         - swig >={{ swig_version }}
@@ -87,6 +91,8 @@ outputs:
         - {{ pin_compatible('numpy') }}
         - python
         - python-lal >={{ lal_version }}
+        # swig bindings cause segmentation fault
+        - numpy <1.20.0a0
     test:
       requires:
         - pytest >=4.0.0a0
@@ -118,6 +124,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - help2man >=1.37
         - make
       host:
         - liblal >={{ lal_version }}
