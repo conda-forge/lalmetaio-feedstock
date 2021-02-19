@@ -125,7 +125,7 @@ outputs:
 
         Note: this package only provides the importable Python libraries.
         All command-line interfaces, scripts, and executables are
-        part of the [`lalmetaio`](/conda-forge/lalmetaio) package.
+        part of the `lalmetaio` package.
 
   - name: lalmetaio
     script: install-bin.sh
