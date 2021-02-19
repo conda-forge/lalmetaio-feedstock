@@ -54,14 +54,24 @@ outputs:
       run_constrained:
         - lalmetaio >=2.0.1
         - python-lalmetaio >=2.0.1
+    test:
+      requires:
+        - pkg-config
+      commands:
+        # check library
+        - test -f ${PREFIX}/lib/liblalmetaio${SHLIB_EXT}  # [unix]
+        # check activate variables
+        - test "${LALMETAIO_DATADIR}" = "${PREFIX}/share/lalmetaio"  # [unix]
+        # check pkg-config
+        - pkg-config --print-errors --exact-version "${PKG_VERSION}" lalmetaio
     about:
       home: https://wiki.ligo.org/Computing/LALSuite
       doc_url: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
-      dev_url: https://git.ligo.org/lscsoft/lalsuite/
+      dev_url: https://git.ligo.org/lscsoft/lalsuite.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file: COPYING
-      summary: LSC Algorithm MetaIO Library
+      summary: LSC Algorithm MetaIO Library shared object libraries
       description: |
         The LSC Algorithm MetaIO Library for gravitational wave data analysis.
         This package contains the shared-object libraries needed to run
@@ -91,28 +101,31 @@ outputs:
         - {{ pin_compatible('numpy') }}
         - python
         - python-lal >={{ lal_version }}
-        # swig bindings cause segmentation fault
-        - numpy <1.20.0a0
     test:
       requires:
         - pytest >=4.0.0a0
       source_files:
         - test/python
       commands:
-        - python -m pytest -rs -v test/python
+        - python -m pytest -ra -v test/python
       imports:
         - lalmetaio
     about:
       home: https://wiki.ligo.org/Computing/LALSuite
       doc_url: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
-      dev_url: https://git.ligo.org/lscsoft/lalsuite/
+      dev_url: https://git.ligo.org/lscsoft/lalsuite.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file: COPYING
       summary: LSC Algorithm MetaIO Library
       description: |
         The LSC Algorithm MetaIO Library for gravitational wave data analysis.
-        This package contains the python bindings.
+        This package contains the Python bindings of the LALMetaIO C libraries
+        and additional Python modules.
+
+        Note: this package only provides the importable Python libraries.
+        All command-line interfaces, scripts, and executables are
+        part of the [`lalmetaio`](/conda-forge/lalmetaio) package.
 
   - name: lalmetaio
     script: install-bin.sh
@@ -141,7 +154,7 @@ outputs:
     about:
       home: https://wiki.ligo.org/Computing/LALSuite
       doc_url: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
-      dev_url: https://git.ligo.org/lscsoft/lalsuite/
+      dev_url: https://git.ligo.org/lscsoft/lalsuite.git
       license: GPL-2.0-or-later
       license_family: GPL
       license_file: COPYING
@@ -152,7 +165,7 @@ outputs:
 about:
   home: https://wiki.ligo.org/Computing/LALSuite
   doc_url: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
-  dev_url: https://git.ligo.org/lscsoft/lalsuite/
+  dev_url: https://git.ligo.org/lscsoft/lalsuite.git
   license: GPL-2.0-or-later
   license_family: GPL
   license_file: COPYING
