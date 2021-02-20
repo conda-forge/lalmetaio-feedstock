@@ -7,9 +7,9 @@ Package license: GPL-2.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lalmetaio-feedstock/blob/master/LICENSE.txt)
 
-Summary: LSC Algorithm MetaIO Library
+Summary: LSC Algorithm MetaIO Library shared object libraries
 
-Development: https://git.ligo.org/lscsoft/lalsuite/
+Development: https://git.ligo.org/lscsoft/lalsuite.git
 
 Documentation: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
 
