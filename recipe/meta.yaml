@@ -1,6 +1,6 @@
 {% set name = "lalmetaio" %}
-{% set version = "2.0.2" %}
-{% set sha256 = "fafcd2159d21ae5d29ae0e0ea4067b84b385f5b6a6b852030574ceac94965d96" %}
+{% set version = "2.0.3" %}
+{% set sha256 = "ad4a56b84edc4a11bd34a8c82b09d7e9b72176b59cb7572eddf4fe2462acd15b" %}
 
 # dependencies
 {% set lal_version = "7.1.0" %}
@@ -29,7 +29,7 @@ requirements:
     - pkg-config >=0.18.0
     - swig >={{ swig_version }}
   host:
-    - lal >={{ lal_version }}
+    - liblal >={{ lal_version }}
     - metaio >={{ metaio_version }}
 
 outputs:
