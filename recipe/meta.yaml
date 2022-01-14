@@ -1,6 +1,6 @@
 {% set name = "lalmetaio" %}
-{% set version = "2.1.0" %}
-{% set sha256 = "4b07178303060b9b03ab4620c5bea1dd902e76dda0c12463927c2647630e9093" %}
+{% set version = "2.1.1" %}
+{% set sha256 = "9f9d29f2664add71a9ff21ac36f4f9c8a4fb2a3edb1e5b05106b9f99b4fe9e6e" %}
 
 # dependencies
 {% set lal_version = "7.1.0" %}
