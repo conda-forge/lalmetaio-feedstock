@@ -1,9 +1,8 @@
 {% set name = "lalmetaio" %}
 {% set version = "3.0.0" %}
-{% set sha256 = "851be0b829002af0ebdd29240e0c478f49a197d5a70947090239e48f9ec4edf2" %}
 
 # dependencies
-{% set lal_version = "7.1.0" %}
+{% set lal_version = "7.2.0" %}
 {% set metaio_version = "8.4.0" %}
 {% set swig_version = "3.0.10" %}
 
@@ -13,7 +12,7 @@ package:
 
 source:
   url: https://software.ligo.org/lscsoft/source/lalsuite/{{ name }}-{{ version }}.tar.xz
-  sha256: {{ sha256 }}
+  sha256: 851be0b829002af0ebdd29240e0c478f49a197d5a70947090239e48f9ec4edf2
 
 build:
   error_overlinking: true
@@ -60,8 +59,6 @@ outputs:
       commands:
         # check library
         - test -f ${PREFIX}/lib/liblalmetaio${SHLIB_EXT}  # [unix]
-        # check activate variables
-        - test "${LALMETAIO_DATADIR}" = "${PREFIX}/share/lalmetaio"  # [unix]
         # check pkg-config
         - pkg-config --print-errors --exact-version "${PKG_VERSION}" lalmetaio
     about:
