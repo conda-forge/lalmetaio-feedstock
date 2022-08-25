@@ -1,5 +1,5 @@
 {% set name = "lalmetaio" %}
-{% set version = "3.0.0" %}
+{% set version = "3.0.1" %}
 
 # dependencies
 {% set lal_version = "7.2.0" %}
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://software.ligo.org/lscsoft/source/lalsuite/{{ name }}-{{ version }}.tar.xz
-  sha256: 851be0b829002af0ebdd29240e0c478f49a197d5a70947090239e48f9ec4edf2
+  sha256: b00379cad76dadb497ed7103d19da9e1a4f14a9ada6fc909ccf8006f539de0cf
 
 build:
   error_overlinking: true
