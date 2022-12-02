@@ -17,7 +17,7 @@ source:
 build:
   error_overlinking: true
   error_overdepending: true
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -29,7 +29,7 @@ requirements:
     - swig >={{ swig_version }}
   host:
     - liblal >={{ lal_version }}
-    - metaio >={{ metaio_version }}
+    - libmetaio >={{ metaio_version }}
 
 outputs:
   - name: liblalmetaio
@@ -46,10 +46,10 @@ outputs:
         - swig >={{ swig_version }}
       host:
         - liblal >={{ lal_version }}
-        - metaio >={{ metaio_version }}
+        - libmetaio >={{ metaio_version }}
       run:
         - liblal >={{ lal_version }}
-        - metaio >={{ metaio_version }}
+        - libmetaio >={{ metaio_version }}
       run_constrained:
         - lalmetaio >=2.0.1
         - python-lalmetaio >=2.0.1
@@ -75,7 +75,7 @@ outputs:
         applications that use the LAL MetaIO library.
 
   - name: python-lalmetaio
-    script: install-python.sh
+    script: build-python.sh
     build:
       error_overdepending: true
       error_overlinking: true
