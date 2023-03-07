@@ -2,9 +2,9 @@
 {% set version = "4.0.0" %}
 
 # dependencies
-{% set lal_version = "7.2.2" %}
+{% set lal_version = "7.3.0" %}
 {% set metaio_version = "8.4.0" %}
-{% set swig_version = "3.0.10,<4.1.0a0" %}
+{% set swig_version = "3.0.10" %}
 
 package:
   name: {{ name }}-split
