@@ -1,11 +1,29 @@
+About lalmetaio-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lalmetaio-feedstock/blob/main/LICENSE.txt)
+
 About lalmetaio
-===============
+---------------
 
 Home: https://wiki.ligo.org/Computing/LALSuite
 
 Package license: GPL-2.0-or-later
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lalmetaio-feedstock/blob/main/LICENSE.txt)
+Summary: LSC Algorithm MetaIO Library
+
+Development: https://git.ligo.org/lscsoft/lalsuite.git
+
+Documentation: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
+
+The LSC Algorithm MetaIO Library for gravitational wave data analysis.
+
+About liblalmetaio
+------------------
+
+Home: https://wiki.ligo.org/Computing/LALSuite
+
+Package license: GPL-2.0-or-later
 
 Summary: LSC Algorithm MetaIO Library shared object libraries
 
@@ -16,6 +34,27 @@ Documentation: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
 The LSC Algorithm MetaIO Library for gravitational wave data analysis.
 This package contains the shared-object libraries needed to run
 applications that use the LAL MetaIO library.
+
+About python-lalmetaio
+----------------------
+
+Home: https://wiki.ligo.org/Computing/LALSuite
+
+Package license: GPL-2.0-or-later
+
+Summary: LSC Algorithm MetaIO Library
+
+Development: https://git.ligo.org/lscsoft/lalsuite.git
+
+Documentation: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
+
+The LSC Algorithm MetaIO Library for gravitational wave data analysis.
+This package contains the Python bindings of the LALMetaIO C libraries
+and additional Python modules.
+
+Note: this package only provides the importable Python libraries.
+All command-line interfaces, scripts, and executables are
+part of the `lalmetaio` package.
 
 
 Current build status
