@@ -3,6 +3,7 @@ About lalmetaio-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lalmetaio-feedstock/blob/main/LICENSE.txt)
 
+
 About lalmetaio
 ---------------
 
@@ -17,6 +18,7 @@ Development: https://git.ligo.org/lscsoft/lalsuite.git
 Documentation: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
 
 The LSC Algorithm MetaIO Library for gravitational wave data analysis.
+
 
 About liblalmetaio
 ------------------
@@ -34,6 +36,7 @@ Documentation: https://lscsoft.docs.ligo.org/lalsuite/lalmetaio/
 The LSC Algorithm MetaIO Library for gravitational wave data analysis.
 This package contains the shared-object libraries needed to run
 applications that use the LAL MetaIO library.
+
 
 About python-lalmetaio
 ----------------------
