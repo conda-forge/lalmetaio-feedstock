@@ -1,8 +1,8 @@
 {% set name = "lalmetaio" %}
-{% set version = "4.0.4" %}
+{% set version = "4.0.5" %}
 
 # dependencies
-{% set lal_version = "7.5.0" %}
+{% set lal_version = "7.6.0" %}
 {% set metaio_version = "8.4.0" %}
 {% set swig_version = "3.0.10" %}
 
@@ -12,12 +12,11 @@ package:
 
 source:
   url: https://software.igwn.org/sources/source/lalsuite/{{ name }}-{{ version }}.tar.xz
-  sha256: 71ccd3481f408b725bb350b2731e82cc0f9ed8ca6a7bc057838e521cc8d5417c
+  sha256: f93bac986ebbbe56b74c5b261e608c3b253d6a8561244d31cd20f42e999d6fbb
 
 build:
   error_overlinking: true
-  error_overdepending: true
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -79,11 +78,7 @@ outputs:
   - name: python-lalmetaio
     script: build-python.sh
     build:
-      error_overdepending: true
       error_overlinking: true
-      ignore_run_exports:
-        - numpy
-        - python
     requirements:
       build:
         - {{ compiler('c') }}
@@ -133,10 +128,7 @@ outputs:
   - name: lalmetaio
     script: install-bin.sh
     build:
-      error_overdepending: true
       error_overlinking: true
-      ignore_run_exports:
-        - python
     requirements:
       build:
         - {{ compiler('c') }}
