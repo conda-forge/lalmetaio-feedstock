@@ -2,7 +2,7 @@
 {% set version = "4.0.6" %}
 
 # dependencies
-{% set lal_version = "7.6.0" %}
+{% set lal_version = "7.7.0" %}
 {% set metaio_version = "8.4.0" %}
 {% set swig_version = "3.0.10" %}
 
