@@ -1,5 +1,5 @@
 {% set name = "lalmetaio" %}
-{% set version = "4.0.5" %}
+{% set version = "4.0.6" %}
 
 # dependencies
 {% set lal_version = "7.6.0" %}
@@ -12,11 +12,11 @@ package:
 
 source:
   url: https://software.igwn.org/sources/source/lalsuite/{{ name }}-{{ version }}.tar.xz
-  sha256: f93bac986ebbbe56b74c5b261e608c3b253d6a8561244d31cd20f42e999d6fbb
+  sha256: 9215fc4d0d05ae8d2dd38a3d5ee052dff22eb75793b179c783a0475ed507750b
 
 build:
   error_overlinking: true
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
