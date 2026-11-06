@@ -177,6 +177,9 @@ outputs:
             - lalmetaio
           pip_check: false
       - script:
+          # assert that the manuals don't contain errors
+          - grep -q ModuleNotFoundError ${PREFIX}/share/man/man1/lalmetaio_*.1 && exit 1
+          # check the executables
           - lalmetaio_version --verbose
           # the user environment script rewrites PATH, so check that it still works
           - bash -c '. "${PREFIX}/etc/lalmetaio-user-env.sh" && lalmetaio_version'
