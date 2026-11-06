@@ -1,10 +1,9 @@
 schema_version: 1
 
 context:
-  version: "4.0.6"
-  build_number: 3
+  version: "4.1.0"
   # dependencies
-  lal_version: 7.7.0
+  lal_version: 8.0.0
   metaio_version: 8.4.0
   swig_version: 4.4.1
 
@@ -14,10 +13,10 @@ recipe:
 
 source:
   - url: https://software.igwn.org/sources/source/lalsuite/lalmetaio-${{ version }}.tar.xz
-    sha256: 9215fc4d0d05ae8d2dd38a3d5ee052dff22eb75793b179c783a0475ed507750b
+    sha256: 17b17a4e096050b764727e67d92e79c16ddf44dc8b8d2f628677154ecdf9e2fa
 
 build:
-  number: ${{ build_number }}
+  number: 0
   skip:
     - win
 
@@ -107,6 +106,7 @@ outputs:
         - python
       run:
         - ${{ pin_subpackage("liblalmetaio", exact=True) }}
+        - igwn-ligolw
         - python
         - python-lal >=${{ lal_version }}
     tests:
@@ -176,6 +176,9 @@ outputs:
             - lalmetaio
           pip_check: false
       - script:
+          # assert that the manuals don't contain errors
+          - grep -q ModuleNotFoundError ${PREFIX}/share/man/man1/lalmetaio_*.1 && exit 1
+          # check the executables
           - lalmetaio_version --verbose
           # the user environment script rewrites PATH, so check that it still works
           - bash -c '. "${PREFIX}/etc/lalmetaio-user-env.sh" && lalmetaio_version'
