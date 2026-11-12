@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "4.1.0"
+  version: "4.1.1"
   # dependencies
   lal_version: 8.0.0
   metaio_version: 8.4.0
@@ -13,7 +13,7 @@ recipe:
 
 source:
   - url: https://software.igwn.org/sources/source/lalsuite/lalmetaio-${{ version }}.tar.xz
-    sha256: 17b17a4e096050b764727e67d92e79c16ddf44dc8b8d2f628677154ecdf9e2fa
+    sha256: 1741481ed708fb645d6544882a868c36433f8d5c86d83a90d2b5e6ad7477084c
 
 build:
   number: 0
